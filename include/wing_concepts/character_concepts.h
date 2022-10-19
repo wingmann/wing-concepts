@@ -16,25 +16,24 @@
 
 namespace wingmann::concepts::character {
 
-template<typename T>
-concept signed_integral_character = std::same_as<T, signed char>;
+namespace __detail {
+
+template <typename T, typename ... Types>
+constexpr bool is_any_of_v = std::disjunction_v<std::is_same<T, Types>...>;
 
 template<typename T>
-concept unsigned_integral_character = std::same_as<T, unsigned char>;
+constexpr bool is_character_v = is_any_of_v<
+    std::remove_cv_t<T>,
+    char,
+    wchar_t,
+    char8_t,
+    char16_t,
+    char32_t>;
+
+} // namespace __detail
 
 template<typename T>
-concept integral_character = signed_integral_character<T> && unsigned_integral_character<T>;
-
-template<typename T>
-concept not_integral_character =
-    std::same_as<T, char> ||
-    std::same_as<T, wchar_t> ||
-    std::same_as<T, char8_t> ||
-    std::same_as<T, char16_t> ||
-    std::same_as<T, char32_t>;
-
-template<typename T>
-concept character = integral_character<T> && not_integral_character<T>;
+concept character = __detail::is_character_v<T>;
 
 } // namespace wingmann::concepts::character
 

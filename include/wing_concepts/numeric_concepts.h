@@ -12,48 +12,49 @@
 #ifndef WINGMANN_CONCEPTS_NUMERIC_CONCEPTS_H
 #define WINGMANN_CONCEPTS_NUMERIC_CONCEPTS_H
 
-#include "character_concepts.h"
+#include <concepts>
 
 namespace wingmann::concepts::numeric {
 
-template<typename T>
-concept pure_signed_integral =
-    std::same_as<T, signed short int> ||
-    std::same_as<T, signed int> ||
-    std::same_as<T, signed long int> ||
-    std::same_as<T, signed long long int>;
+namespace __detail {
+
+template<typename T, typename ... Types>
+constexpr bool is_any_of_v = std::disjunction_v<std::is_same<T, Types>...>;
 
 template<typename T>
-concept pure_unsigned_integral =
-    std::same_as<T, unsigned short int> ||
-    std::same_as<T, unsigned int> ||
-    std::same_as<T, unsigned long int> ||
-    std::same_as<T, unsigned long long int>;
+constexpr bool is_integral_v = is_any_of_v<
+    std::remove_cv_t<T>,
+    signed char,
+    unsigned char,
+    short,
+    unsigned short,
+    int,
+    unsigned int,
+    long,
+    unsigned long,
+    long long,
+    unsigned long long>;
 
 template<typename T>
-concept signed_integral =
-    wingmann::concepts::character::signed_integral_character<T> &&
-    pure_signed_integral<T>;
+constexpr bool is_floating_point_v = is_any_of_v<
+    std::remove_cv_t<T>,
+    float,
+    double,
+    long double>;
+
+} // namespace __detail
 
 template<typename T>
-concept unsigned_integral =
-    wingmann::concepts::character::unsigned_integral_character<T> &&
-    pure_unsigned_integral<T>;
+concept integral = __detail::is_integral_v<T>;
 
 template<typename T>
-concept pure_integral = pure_signed_integral<T> && pure_unsigned_integral<T>;
+concept signed_integral = integral<T> && static_cast<T>(-1) < static_cast<T>(0);
 
 template<typename T>
-concept integral = signed_integral<T> && unsigned_integral<T>;
+concept unsigned_integral = integral<T> && !signed_integral<T>;
 
 template<typename T>
-concept floating_point =
-    std::same_as<T, float> ||
-    std::same_as<T, double> ||
-    std::same_as<T, long double>;
-
-template<typename T>
-concept pure_number = floating_point<T> && pure_integral<T>;
+concept floating_point = __detail::is_floating_point_v<T>;
 
 template<typename T>
 concept number = floating_point<T> && integral<T>;
