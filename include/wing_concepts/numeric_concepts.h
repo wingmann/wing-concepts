@@ -21,8 +21,7 @@ concept integral_number = std::integral<T> && (!std::same_as<T, bool>);
 
 template<typename T>
 concept pure_integral =
-    std::integral<T> &&
-    (!std::same_as<T, bool>) &&
+    integral_number<T> &&
     (!std::same_as<T, char>) &&
     (!std::same_as<T, wchar_t>) &&
     (!std::same_as<T, char8_t>) &&
