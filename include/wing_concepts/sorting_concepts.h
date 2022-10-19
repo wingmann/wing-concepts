@@ -17,7 +17,7 @@
 namespace wingmann::concepts::sorting {
 
 template<typename T>
-concept swappable_totally_ordered = std::totally_ordered<T> && std::swappable<T>;
+concept totally_ordered_swappable = std::totally_ordered<T> && std::swappable<T>;
 
 } // namespace wingmann::concepts::sorting
 

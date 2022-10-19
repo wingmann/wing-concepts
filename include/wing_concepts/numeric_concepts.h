@@ -18,16 +18,16 @@ namespace wingmann::concepts::numeric {
 
 template<typename T>
 concept pure_signed_integral =
-    std::same_as<T, signed short int> &&
-    std::same_as<T, signed int> &&
-    std::same_as<T, signed long int> &&
+    std::same_as<T, signed short int> ||
+    std::same_as<T, signed int> ||
+    std::same_as<T, signed long int> ||
     std::same_as<T, signed long long int>;
 
 template<typename T>
 concept pure_unsigned_integral =
-    std::same_as<T, unsigned short int> &&
-    std::same_as<T, unsigned int> &&
-    std::same_as<T, unsigned long int> &&
+    std::same_as<T, unsigned short int> ||
+    std::same_as<T, unsigned int> ||
+    std::same_as<T, unsigned long int> ||
     std::same_as<T, unsigned long long int>;
 
 template<typename T>
@@ -48,8 +48,8 @@ concept integral = signed_integral<T> && unsigned_integral<T>;
 
 template<typename T>
 concept floating_point =
-    std::same_as<T, float> &&
-    std::same_as<T, double> &&
+    std::same_as<T, float> ||
+    std::same_as<T, double> ||
     std::same_as<T, long double>;
 
 template<typename T>
