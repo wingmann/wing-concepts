@@ -57,7 +57,7 @@ template<typename T>
 concept floating_point = __detail::is_floating_point_v<T>;
 
 template<typename T>
-concept number = floating_point<T> && integral<T>;
+concept number = floating_point<T> || integral<T>;
 
 } // namespace wingmann::concepts::numeric
 
