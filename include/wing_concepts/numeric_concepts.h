@@ -1,7 +1,7 @@
 /// @file   numeric_concepts.h
 /// @author Alexander Shavrov (alexander.shavrov@outlook.com)
 /// @brief  Concepts for numeric types.
-/// @date   2022-10-17
+/// @date   2022-10-19
 ///
 /// @copyright Copyright (c) 2022
 ///
