@@ -17,10 +17,10 @@
 namespace wingmann::concepts::boolean {
 
 template<typename T>
-concept same_as_bool = std::same_as<T, bool>;
+concept boolean = std::same_as<T, bool>;
 
 template<typename T>
-concept not_same_as_bool = !same_as_bool<T>;
+concept not_boolean = !boolean<T>;
 
 } // namespace wingmann::concepts::boolean
 

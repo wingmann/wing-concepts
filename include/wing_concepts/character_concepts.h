@@ -12,25 +12,9 @@
 #ifndef WINGMANN_CONCEPTS_CHARACTER_CONCEPTS_H
 #define WINGMANN_CONCEPTS_CHARACTER_CONCEPTS_H
 
-#include <concepts>
+#include "__detail/__concepts_detail.h"
 
 namespace wingmann::concepts::character {
-
-namespace __detail {
-
-template <typename T, typename ... Types>
-constexpr bool is_any_of_v = std::disjunction_v<std::is_same<T, Types>...>;
-
-template<typename T>
-constexpr bool is_character_v = is_any_of_v<
-    std::remove_cv_t<T>,
-    char,
-    wchar_t,
-    char8_t,
-    char16_t,
-    char32_t>;
-
-} // namespace __detail
 
 template<typename T>
 concept character = __detail::is_character_v<T>;
