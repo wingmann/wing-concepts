@@ -1,4 +1,4 @@
-#include "wing_concepts/boolean_concepts.h"
+#include "wing_concepts/boolean.h"
 
 #include <gtest/gtest.h>
 

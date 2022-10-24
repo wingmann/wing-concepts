@@ -1,4 +1,4 @@
-/// @file   boolean_concepts.h
+/// @file   boolean.h
 /// @author Alexander Shavrov (alexander.shavrov@outlook.com)
 /// @brief  Concepts for boolean types.
 /// @date   2022-10-19
@@ -12,12 +12,12 @@
 #ifndef WINGMANN_CONCEPTS_BOOLEAN_CONCEPTS_H
 #define WINGMANN_CONCEPTS_BOOLEAN_CONCEPTS_H
 
-#include <concepts>
+#include "general.h"
 
 namespace wingmann::concepts::boolean {
 
 template<typename T>
-concept boolean = std::same_as<T, bool>;
+concept boolean = same_as<T, bool>;
 
 template<typename T>
 concept not_boolean = !boolean<T>;

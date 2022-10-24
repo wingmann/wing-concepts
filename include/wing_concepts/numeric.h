@@ -1,4 +1,4 @@
-/// @file   numeric_concepts.h
+/// @file   numeric.h
 /// @author Alexander Shavrov (alexander.shavrov@outlook.com)
 /// @brief  Concepts for numeric types.
 /// @date   2022-10-19
@@ -12,7 +12,7 @@
 #ifndef WINGMANN_CONCEPTS_NUMERIC_CONCEPTS_H
 #define WINGMANN_CONCEPTS_NUMERIC_CONCEPTS_H
 
-#include "__detail/__concepts_detail.h"
+#include "__detail/concept_detail.h"
 
 namespace wingmann::concepts::numeric {
 

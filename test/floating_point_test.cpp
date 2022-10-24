@@ -1,4 +1,4 @@
-#include "wing_concepts/numeric_concepts.h"
+#include "wing_concepts/numeric.h"
 
 #include <gtest/gtest.h>
 

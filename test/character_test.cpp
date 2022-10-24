@@ -1,4 +1,4 @@
-#include "wing_concepts/character_concepts.h"
+#include "wing_concepts/character.h"
 
 #include <gtest/gtest.h>
 

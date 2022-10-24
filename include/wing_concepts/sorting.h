@@ -1,4 +1,4 @@
-/// @file   sorting_concepts.h
+/// @file   sorting.h
 /// @author Alexander Shavrov (alexander.shavrov@outlook.com)
 /// @brief  Concepts for sorting algorithms.
 /// @date   2022-10-19
@@ -12,12 +12,12 @@
 #ifndef WINGMANN_CONCEPTS_SORTING_CONCEPTS_H
 #define WINGMANN_CONCEPTS_SORTING_CONCEPTS_H
 
-#include <concepts>
+#include "general.h"
 
 namespace wingmann::concepts::sorting {
 
 template<typename T>
-concept totally_ordered_swappable = std::totally_ordered<T> && std::swappable<T>;
+concept totally_ordered_swappable = totally_ordered<T> && swappable<T>;
 
 } // namespace wingmann::concepts::sorting
 

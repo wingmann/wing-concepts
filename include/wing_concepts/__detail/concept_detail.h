@@ -1,5 +1,16 @@
-#ifndef WINGMANN_WING_CONCEPTS___DETAIL___CONCEPTS_DETAIL_H
-#define WINGMANN_WING_CONCEPTS___DETAIL___CONCEPTS_DETAIL_H
+/// @file   concept_detail.h
+/// @author Alexander Shavrov (alexander.shavrov@outlook.com)
+/// @brief  General concept definitions.
+/// @date   2022-10-25
+///
+/// @copyright Copyright (c) 2022
+///
+/// This file is distributed under the MIT License.
+/// See LICENSE file for details.
+///
+
+#ifndef WINGMANN_WING_CONCEPTS___DETAIL___CONCEPT_DETAIL_H
+#define WINGMANN_WING_CONCEPTS___DETAIL___CONCEPT_DETAIL_H
 
 #include <concepts>
 
@@ -40,6 +51,9 @@ constexpr bool is_character_v = is_any_of_v<
     char16_t,
     char32_t>;
 
-} // namespace wingmann::concepts::__detail
+template<typename T, typename U>
+concept same_helper = std::is_same_v<T, U>;
 
-#endif // WINGMANN_WING_CONCEPTS___DETAIL___CONCEPTS_DETAIL_H
+} // namespace wingmann::concepts::_detail
+
+#endif // WINGMANN_WING_CONCEPTS___DETAIL___CONCEPT_DETAIL_H

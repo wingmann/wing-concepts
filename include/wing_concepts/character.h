@@ -1,4 +1,4 @@
-/// @file   character_concepts.h
+/// @file   character.h
 /// @author Alexander Shavrov (alexander.shavrov@outlook.com)
 /// @brief  Concepts for character types.
 /// @date   2022-10-19
@@ -12,7 +12,7 @@
 #ifndef WINGMANN_CONCEPTS_CHARACTER_CONCEPTS_H
 #define WINGMANN_CONCEPTS_CHARACTER_CONCEPTS_H
 
-#include "__detail/__concepts_detail.h"
+#include "__detail/concept_detail.h"
 
 namespace wingmann::concepts::character {
 
